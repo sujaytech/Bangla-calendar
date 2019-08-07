@@ -1,0 +1,102 @@
+<html>
+<head>
+	<title>Bangla Calendar</title>
+  <script type="text/javascript">
+  function show(shown, hidden) {
+  document.getElementById(shown).style.display='block';
+  document.getElementById(hidden).style.display='none';
+  return false;
+}
+    window.moveTo(0,0);
+    window.resizeTo(300,330);
+
+//////////Time//////////
+function startTime() {
+  var d = new Date();
+  document.getElementById("date").innerHTML = d.toDateString();
+  var today = new Date();
+  var h = today.getHours();
+  var m = today.getMinutes();
+  var s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('time').innerHTML =
+  h + ":" + m + ":" + s;
+  var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
+
+	</script>
+	<style>
+.myButton {
+	-moz-border-radius:42px;
+	-webkit-border-radius:42px;
+	border:1px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#000000;
+	font-family:Arial;
+	font-size:10px;
+	font-weight:bold;
+	padding:7px 20px;
+	text-decoration:none;
+	text-shadow:0px 1px 5px #2f6627;
+}
+.myButton:hover {
+	background-color:transparent;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+.border {
+ border-style:solid;
+ border-color:#287EC7;
+}
+p.round {
+  border: 1px solid red;
+  border-radius: 8px;
+}
+  </style>
+</head>
+<body>
+<div id="main">
+<center><iframe src="http://bengalicalendar.com/embed/index.php" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" style="border:0px; overflow:hidden; width:259px; height:205px;" allowtransparency="true"></iframe></center>
+<hr>
+<center>
+<button type="button" class="myButton" a href="#" onclick="return show('more','main');">More</button>
+<button type="button" class="myButton" a href="#" onclick="return show('about','main');">About</button></center>
+</div>
+
+<div id="more" style="display:none">
+<center><button class="myButton"><body onload="startTime()">Time<div id="time"></div></button></center><hr>
+<center><button class="myButton"><body onload="startTime()">Date<div id="date"></div></button></center>
+ <hr>
+ <center>
+ <button type="button" class="myButton" a href="#" onclick="return show('Term&Policy','more');">Term&Policy</button>
+ <button type="button" class="myButton" a href="#" onclick="return show('main','more');">Back</button></center>
+ </div>
+  
+<div id="about" style="display:none">
+<center>
+<button class="myButton">Bangla Calendar</button><hr>
+Version: 1.0<hr>
+Ceated by Sujay Debnath<hr>
+Email: <a href="mailto:mr.sujaydebnath@gmail.com">mr.sujaydebnath@gmail.com</a><hr>
+Home page: <a href="http://sujaytech.blogspot.com">http://sujaytech.blogspot.com</a><hr></center>
+ <hr>
+ <center><button type="button" class="myButton" a href="#" onclick="return show('main','about');">Back</button></center>
+ </div>
+ 
+ <div id="Term&Policy" style="display:none">
+<center><b><button class="myButton">Term&Policy</button></b>
+<p class="border"><font size=2>This app is fully created by<br> Sujay Debnath.<br>
+The Bangla Calendar is a html embed code, so some credit is given to <a href="http://bengalicalendar.com">BengaliCalender.com</a> and also some credit goes to others who help me to create this app.</font></p></center>
+ <hr>
+ <center><button type="button" class="myButton" a href="#" onclick="return show('more','Term&Policy');">Back</button></center>
+ </div>
+</body>
+</html>
